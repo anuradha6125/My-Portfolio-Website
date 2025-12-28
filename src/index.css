@@ -247,6 +247,14 @@ section {
 
 /* About */
 
+.about-section-header {
+  text-align: left;
+}
+
+.about-section-header h2 {
+  font-size: 5rem;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.6fr 1.2fr;
@@ -254,10 +262,7 @@ section {
 }
 
 .about-text {
-  padding: 1.35rem 1.5rem;
-  border-radius: var(--radius-lg);
-  background: radial-gradient(circle at 0 0, var(--accent-soft), #020617 68%);
-  border: 1px solid rgba(31, 41, 55, 0.9);
+  padding: 0;
 }
 
 .about-text p {
@@ -295,7 +300,32 @@ section {
 
 /* Expertise */
 
+.expertise-wrapper {
+  position: relative;
+  background-image: url('/Expertise.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 4rem 0;
+  margin-top: 2rem;
+  padding-bottom: 8rem;
+}
+
+.expertise-wrapper::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 50px;
+  background: linear-gradient(to top, #1A191D 0%, rgba(26, 25, 29, 0.8) 40%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .expertise-container {
+  position: relative;
+  z-index: 2;
   display: flex;
   border: 3px solid rgba(255, 255, 255, 0.2);
   /* border-radius: var(--radius-md); */

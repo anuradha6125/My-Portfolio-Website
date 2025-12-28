@@ -44,31 +44,33 @@ function Skills() {
         <h2>My Expertise</h2>
       </div>
 
-      <div className="expertise-container">
-        {expertiseCategories.map((category, index) => (
-          <div key={category.title} className="expertise-card-wrapper">
-            <article className="expertise-card">
-              <div className="expertise-icon">{category.icon}</div>
-              <div className="expertise-title-wrapper">
-                <h3 className="expertise-title">
-                  <span className="expertise-highlight" style={{ borderBottomColor: category.highlightColor }}>
-                    {category.highlightWord}
-                  </span>
-                  {category.title !== category.highlightWord && (
-                    <span> {category.title.replace(category.highlightWord, '').trim()}</span>
-                  )}
-                </h3>
-                {category.subtitle && <p className="expertise-subtitle">{category.subtitle}</p>}
-              </div>
-              <div className="expertise-code-line">
-                <span className="expertise-code-before">{category.code.before}</span>
-                <span className="expertise-code-description">{category.description}</span>
-                <span className="expertise-code-after">{category.code.after}</span>
-              </div>
-          </article>
-            {index < expertiseCategories.length - 1 && <div className="expertise-divider"></div>}
-          </div>
-        ))}
+      <div className="expertise-wrapper">
+        <div className="expertise-container">
+          {expertiseCategories.map((category, index) => (
+            <div key={category.title} className="expertise-card-wrapper">
+              <article className="expertise-card">
+                <div className="expertise-icon">{category.icon}</div>
+                <div className="expertise-title-wrapper">
+                  <h3 className="expertise-title">
+                    <span className="expertise-highlight" style={{ borderBottomColor: category.highlightColor }}>
+                      {category.highlightWord}
+                    </span>
+                    {category.title !== category.highlightWord && (
+                      <span> {category.title.replace(category.highlightWord, '').trim()}</span>
+                    )}
+                  </h3>
+                  {category.subtitle && <p className="expertise-subtitle">{category.subtitle}</p>}
+                </div>
+                <div className="expertise-code-line">
+                  <span className="expertise-code-before">{category.code.before}</span>
+                  <span className="expertise-code-description">{category.description}</span>
+                  <span className="expertise-code-after">{category.code.after}</span>
+                </div>
+            </article>
+              {index < expertiseCategories.length - 1 && <div className="expertise-divider"></div>}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

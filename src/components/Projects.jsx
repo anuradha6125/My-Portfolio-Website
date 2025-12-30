@@ -1,62 +1,49 @@
+import React from 'react';
+
 const projects = [
   {
-    title: "Responsive Portfolio Website",
-    description:
-      "A personal portfolio built with React and CSS, featuring smooth scrolling, responsive layout, and a clean design for showcasing work.",
-    techStack: ["React", "Vite", "CSS"],
-    github: "https://github.com/your-username/portfolio",
-    demo: "https://your-portfolio-demo.com",
+    title: "Test Request Management System",
+    description: "Designed and developed a web-based test request management system for Roop Polymers Limited, streamlining request processing and tracking for improved operational efficiency. Built core features including admin dashboard, secure file uploads, and automated email notifications.",
+    category: "Flask, Python, MySQL, HTML/CSS, JavaScript",
+    gradient: "linear-gradient(135deg, #ff2d88 0%, #ff6b4d 50%, #ffb74d 100%)",
+    date: "May 2025"
   },
   {
-    title: "Task Manager App",
-    description:
-      "A simple task manager for organizing daily todos with filtering, completion tracking, and local storage persistence.",
-    techStack: ["React", "CSS", "Local Storage"],
-    github: "https://github.com/your-username/task-manager",
-    demo: "https://your-task-manager-demo.com",
+    title: "Collegia: AI for College Students",
+    description: "Developed Collegia, an AI-powered website designed to serve as a comprehensive information hub for students. Integrated features to provide easy access to essential information like faculty emails and subjects handled by each teacher.",
+    category: "AI/ML, Vite+React, API",
+    gradient: "linear-gradient(135deg, #8a56ff 0%, #5e60ce 50%, #4ea8de 100%)",
+    date: "Oct 2024"
   },
   {
-    title: "Weather Dashboard",
-    description:
-      "A weather dashboard that fetches real-time data from a public API and displays current conditions with a minimal UI.",
-    techStack: ["React", "Fetch API", "CSS"],
-    github: "https://github.com/your-username/weather-dashboard",
-    demo: "https://your-weather-dashboard-demo.com",
+    title: "Movie Analytics Project",
+    description: "Scraped movie data from IMDb using web scraping techniques (BeautifulSoup and Selenium). Transformed and cleaned the data for analysis and visualization in Power BI. Designed an interactive Power BI dashboard to present key insights.",
+    category: "Python, Power BI, BeautifulSoup, Selenium",
+    gradient: "linear-gradient(135deg, #ffb74d 0%, #f77f00 50%, #ff2d88 100%)",
+    date: "Sep 2024"
   },
 ];
 
 function Projects() {
   return (
-    <div className="section-container">
-      <div className="section-header">
-        <h2>Projects</h2>
-        <p>Selected work that showcases my expertise</p>
+    <section id="portfolio" className="section-container">
+      <div className="portfolio-header">
+        <h2 className="portfolio-title">Portfolio</h2>
+        <a href="#portfolio" className="portfolio-link">see all work</a>
       </div>
 
-      <div className="projects-grid">
+      <div className="portfolio-list">
         {projects.map((project) => (
-          <article key={project.title} className="project-card">
-            <h3>{project.title}</h3>
-            <p className="project-description">{project.description}</p>
-
-            <ul className="project-tech">
-              {project.techStack.map((tech) => (
-                <li key={tech}>{tech}</li>
-              ))}
-            </ul>
-
-            <div className="project-links">
-              <a href={project.github} target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-              <a href={project.demo} target="_blank" rel="noreferrer">
-                Live Demo
-              </a>
-            </div>
+          <article key={project.title} className="portfolio-item">
+            <div 
+              className="portfolio-image-placeholder"
+              style={{ background: project.gradient }}
+            />
+            <div className="project-label">{project.title}</div>
           </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

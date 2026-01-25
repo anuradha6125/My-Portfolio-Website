@@ -763,6 +763,13 @@ section {
   }
 }
 
+.reveal-on-scroll {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
@@ -1122,8 +1129,26 @@ section {
   min-height: 600px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 20rem;
   overflow: visible;
+}
+
+.testimonials-title {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: clamp(30px, 6vw, 80px);
+}
+
+@media (max-width: 1024px) {
+  .testimonials-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .testimonials-title {
+    margin: 0;
+  }
 }
 
 .testimonials-stack {

@@ -1,4 +1,6 @@
 import Navbar from "./components/Navbar.jsx";
+import RevealOnScroll from "./components/RevealOnScroll.jsx";
+
 import Hero from "./components/Hero.jsx";
 import Stats from "./components/Stats.jsx";
 import Projects from "./components/Projects.jsx";
@@ -16,12 +18,24 @@ function App() {
         <section id="home">
           <Hero />
         </section>
-        <Stats />
-        <Projects />
-        <Services />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+        <RevealOnScroll>
+          <Stats />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Projects />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Services />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Testimonials />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <FAQ />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Contact />
+        </RevealOnScroll>
       </main>
       <Footer />
     </>

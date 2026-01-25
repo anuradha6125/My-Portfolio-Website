@@ -25,8 +25,8 @@ const testimonials = [
 function Testimonials() {
   return (
     <section id="testimonials" className="section-container">
-      <h2 className="section-title">Feedback</h2>
       <div className="testimonials-container">
+        <h2 className="section-title testimonials-title">Feedback</h2>
         <div style={{ height: '600px', position: 'relative' }}>
           <CardSwap
             width={500}

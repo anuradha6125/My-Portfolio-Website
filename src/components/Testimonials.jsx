@@ -1,63 +1,94 @@
-import React from 'react';
-import CardSwap, { Card } from './CardSwap';
+import React, { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    rating: "5 stars",
-    quote: "Exceptional work on our web application. The attention to detail and technical expertise resulted in a system that exceeded all our expectations.",
-    author: "Project Manager",
-    role: "Roop Polymers Ltd"
+    quote: "Her code is as clean as her designs. She completely refocused our frontend architecture while maintaining a beautiful aesthetic. Simply outstanding.",
+    name: "Aarav Sharma",
+    role: "Tech Lead @ Roop Polymers",
   },
   {
-    rating: "5 stars",
-    quote: "Outstanding problem-solving skills and a deep understanding of data analytics. The Power BI dashboards delivered actionable insights that drove real business decisions.",
-    author: "Team Lead",
-    role: "RS Solar Infrastructure"
-  },
-  {
-    rating: "5 stars",
-    quote: "A dedicated developer with excellent communication skills. The AI-powered solution was delivered on time and works flawlessly.",
-    author: "Faculty Advisor",
-    role: "MRIIRS"
-  },
+    quote: "A rare mix of technical depth and creative vision. The way she handled our product’s complex data visualization was masterful.",
+    name: "Dr. Meera Patel",
+    role: "Director @ Collegia AI",
+  }
 ];
 
 function Testimonials() {
+  const containerRef = useRef(null);
+  const textRefs = useRef([]);
+
+  useEffect(() => {
+    textRefs.current.forEach((el, index) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1, y: 0, duration: 1.5, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section id="testimonials" className="section-container">
-      <div className="testimonials-container">
-        <h2 className="section-title testimonials-title">Feedback</h2>
-        <div style={{ height: '600px', position: 'relative' }}>
-          <CardSwap
-            width={500}
-            height={400}
-            cardDistance={45}
-            verticalDistance={65}
-            delay={4500}
-            skewAmount={2}
-            pauseOnHover={true}
-          >
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                role="article"
-                aria-label={`Testimonial from ${testimonial.author}`}
-              >
-                <div className="testimonial-rating">
-                  <span aria-hidden="true">⭐</span>
-                  <span>{testimonial.rating}</span>
-                </div>
-                <blockquote className="testimonial-quote">
-                  "{testimonial.quote}"
-                </blockquote>
-                <footer>
-                  <span className="testimonial-author">{testimonial.author}</span>
-                  <span className="testimonial-role">, {testimonial.role}</span>
-                </footer>
-              </Card>
-            ))}
-          </CardSwap>
-        </div>
+    <section id="testimonials" className="section-container" ref={containerRef} style={{ paddingTop: '15vh', paddingBottom: '15vh' }}>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10rem', alignItems: 'center', textAlign: 'center' }}>
+        {testimonials.map((t, index) => (
+          <div key={index} ref={el => textRefs.current[index] = el} style={{ maxWidth: '900px' }}>
+            <p style={{
+              fontFamily: '"Space Grotesk", sans-serif',
+              fontSize: 'clamp(2rem, 5vw, 4rem)',
+              fontWeight: 300,
+              lineHeight: 1.2,
+              letterSpacing: '-0.03em',
+              color: '#fff',
+              margin: '0 0 3rem 0',
+              position: 'relative'
+            }}>
+              <span style={{
+                position: 'absolute',
+                top: '-2rem',
+                left: '-4rem',
+                fontSize: '8rem',
+                color: 'rgba(255,255,255,0.05)',
+                fontFamily: 'serif',
+                lineHeight: 1
+              }}>
+                "
+              </span>
+              {t.quote}
+            </p>
+            <div>
+              <span style={{
+                display: 'block',
+                fontFamily: '"Inter", sans-serif',
+                fontSize: '1rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '0.5rem'
+              }}>
+                {t.name}
+              </span>
+              <span style={{
+                display: 'block',
+                fontFamily: '"Inter", sans-serif',
+                fontSize: '0.85rem',
+                color: 'rgba(255,255,255,0.4)'
+              }}>
+                {t.role}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

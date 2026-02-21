@@ -1,33 +1,72 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Stats() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(containerRef.current,
+      { y: 50, opacity: 0 },
+      {
+        y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+        }
+      }
+    );
+  }, []);
+
   return (
-    <section id="stats" className="section-container">
-      <div className="stats-section">
-        <div className="stats-text-wrapper">
-          <p className="stats-text">
-            I'm a Software Developer and Beginner Machine Learning Enthusiast with expertise in web development, 
-            machine learning, and data visualization. Currently working at RSK Business Solution Company as Dot Net Developer 
-            and pursuing B.Tech in Computer Science, I bring a passion for creating innovative solutions and turning data into 
-            actionable insights.
-          </p>
-          <a href="#portfolio" className="btn btn-outline">
-            View all projects
-          </a>
-        </div>
-        
-        <div className="stats-grid">
-          <div className="stat-item">
-            <span className="stat-label">Projects</span>
-            <span className="stat-value">3+</span>
+    <section id="stats" className="section-container" style={{ paddingTop: '5vh' }}>
+      <div
+        ref={containerRef}
+        className="glass-panel"
+        style={{
+          padding: '4rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '4rem',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <p style={{
+          fontFamily: '"Space Grotesk", sans-serif',
+          fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+          fontWeight: 300,
+          lineHeight: 1.4,
+          margin: 0,
+          color: '#fff',
+          maxWidth: '1000px',
+          letterSpacing: '-0.02em'
+        }}>
+          I'm a Software Developer and beginner Machine Learning enthusiast.
+          Currently working at <span style={{ color: 'rgba(255,255,255,0.6)', fontStyle: 'italic' }}>RSK Business Solution</span> as a Dot Net Developer
+          and pursuing a B.Tech in CS. I bring a passion for creating innovative solutions and turning data into actionable insights.
+        </p>
+
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '4rem',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          paddingTop: '3rem'
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '3rem', lineHeight: 1, color: '#fff' }}>3+</span>
+            <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>Projects</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-label">Years Experience</span>
-            <span className="stat-value">2+</span>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '3rem', lineHeight: 1, color: '#fff' }}>2+</span>
+            <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>Years Experience</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-label">CGPA</span>
-            <span className="stat-value">7.65</span>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '3rem', lineHeight: 1, color: '#fff' }}>7.65</span>
+            <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>CGPA</span>
           </div>
         </div>
       </div>

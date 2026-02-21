@@ -4,42 +4,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const RevealOnScroll = ({ children, delay = 0 }) => {
+const RevealOnScroll = ({ children }) => {
   const ref = useRef(null);
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
     
     gsap.fromTo(
       element,
-      { 
-        opacity: 0, 
-        y: 60,
-        scale: 0.95
-      },
+      { opacity: 0, y: 75 },
       {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 1,
-        delay: delay,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: element,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-          markers: false,
+          start: "top 85%", // Start animation when top of element hits 85% of viewport height
+          toggleActions: "play none none none", // Play once
         },
       }
     );
 
     return () => {
-      const triggers = ScrollTrigger.getAll().filter(t => t.vars.trigger === element);
-      triggers.forEach(t => t.kill());
+        // Cleanup if necessary, though ScrollTrigger usually handles it well
+         ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, [delay]);
+  }, []);
 
   return <div ref={ref} className="reveal-on-scroll">{children}</div>;
 };

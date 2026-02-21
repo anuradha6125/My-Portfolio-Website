@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/space-grotesk": "^5.2.10",
+    "@studio-freight/react-lenis": "^0.0.47",
     "gsap": "^3.14.2",
     "ogl": "^1.0.11",
     "react": "^18.3.1",

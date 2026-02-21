@@ -4,6 +4,7 @@ import RevealOnScroll from "./components/RevealOnScroll.jsx";
 import Hero from "./components/Hero.jsx";
 import Stats from "./components/Stats.jsx";
 import Projects from "./components/Projects.jsx";
+import Experience from "./components/Experience.jsx";
 import Services from "./components/Skills.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import FAQ from "./components/FAQ.jsx";
@@ -23,6 +24,9 @@ function App() {
         </RevealOnScroll>
         <RevealOnScroll>
           <Projects />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Experience />
         </RevealOnScroll>
         <RevealOnScroll>
           <Services />

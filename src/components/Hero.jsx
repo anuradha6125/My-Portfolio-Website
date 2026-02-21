@@ -1,42 +1,147 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 function Hero() {
+  const containerRef = useRef(null);
+  const text1Ref = useRef(null);
+  const text2Ref = useRef(null);
+  const orbRef = useRef(null);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    // Subtle entrance animation for the massive text
+    tl.fromTo([text1Ref.current, text2Ref.current],
+      { y: 50, opacity: 0, filter: 'blur(10px)' },
+      { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.5, stagger: 0.2, ease: 'power3.out', delay: 0.1 }
+    );
+
+    tl.fromTo(bottomRef.current,
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+      "-=1"
+    );
+
+    // Continuous float animation for the ambient orb
+    gsap.to(orbRef.current, {
+      y: -30,
+      x: 20,
+      scale: 1.05,
+      duration: 4,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+  }, []);
+
   return (
-    <>
-      <div className="social-left">
-        <a href="https://linkedin.com/in/anuradha-gaur-81487b255" target="_blank" rel="noreferrer" className="social-icon" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/anuradha6125" target="_blank" rel="noreferrer" className="social-icon" aria-label="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
+    <section
+      id="home"
+      ref={containerRef}
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: '0 6vw',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Central Ethereal Orb - The core visual of the redesign */}
+      <div
+        ref={orbRef}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 'clamp(300px, 60vw, 800px)',
+          height: 'clamp(300px, 50vw, 600px)',
+          background: 'radial-gradient(ellipse at center, rgba(255, 45, 136, 0.4) 0%, rgba(255, 183, 77, 0.2) 50%, transparent 70%)',
+          filter: 'blur(60px)',
+          zIndex: 0,
+          pointerEvents: 'none',
+          mixBlendMode: 'screen',
+        }}
+      />
+
+      {/* Massive Typography Content */}
+      <div style={{ position: 'relative', zIndex: 10, marginTop: '10vh' }}>
+        <h1
+          style={{
+            fontFamily: '"Space Grotesk", sans-serif',
+            fontSize: 'clamp(60px, 12vw, 180px)',
+            fontWeight: 300,
+            lineHeight: 0.9,
+            letterSpacing: '-0.04em',
+            margin: 0,
+            textTransform: 'none',
+            color: '#fff'
+          }}
+        >
+          <div ref={text1Ref} style={{ display: 'block' }}>Designing</div>
+          <div ref={text2Ref} style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>for You</div>
+        </h1>
+      </div>
+
+      {/* Bottom info bar */}
+      <div
+        ref={bottomRef}
+        style={{
+          position: 'absolute',
+          bottom: '8vh',
+          left: '6vw',
+          right: '6vw',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          zIndex: 10
+        }}
+      >
+        <p style={{
+          maxWidth: '400px',
+          margin: 0,
+          fontSize: '0.95rem',
+          lineHeight: 1.6,
+          color: 'rgba(255,255,255,0.7)',
+          fontFamily: '"Inter", sans-serif',
+          fontWeight: 300
+        }}>
+          For 2+ years, I've been helping brands and creatives build standout websites. By combining thoughtful design with powerful code, I make the web more beautiful.
+        </p>
+
+        <a
+          href="#portfolio"
+          style={{
+            fontFamily: '"Space Grotesk", sans-serif',
+            fontSize: '0.85rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            color: '#fff',
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px'
+          }}
+        >
+          See Works
+          <span style={{
+            display: 'inline-flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '32px',
+            height: '32px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            borderRadius: '50%'
+          }}>↓</span>
         </a>
       </div>
-      
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            <span className="big">ANURADHA</span>
-          </h1>
-          
-          <p className="hero-tagline">
-            Software Developer | Frontend Developer | Beginner Machine Learning Enthusiast
-          </p>
-          
-          <div className="hero-actions">
-            <a href="#contact" className="btn btn-primary">
-              contact me
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
+    </section>
   );
 }
 
 export default Hero;
-
-

@@ -7,13 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
   {
     quote: "Her code is as clean as her designs. She completely refocused our frontend architecture while maintaining a beautiful aesthetic. Simply outstanding.",
-    name: "Aarav Sharma",
-    role: "Tech Lead @ Roop Polymers",
+    name: "Mr. Basudev Pradhan",
+    role: "Team Lead @ RSK Business Solutions",
   },
   {
     quote: "A rare mix of technical depth and creative vision. The way she handled our product’s complex data visualization was masterful.",
-    name: "Dr. Meera Patel",
-    role: "Director @ Collegia AI",
+    name: "Dr. Suresh Kumar",
+    role: "Professor @ MRIIRS",
   }
 ];
 
@@ -45,7 +45,7 @@ function Testimonials() {
           <div key={index} ref={el => textRefs.current[index] = el} style={{ maxWidth: '900px' }}>
             <p style={{
               fontFamily: '"Space Grotesk", sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
+              fontSize: 'clamp(1rem, 2vw, 1.6rem)',
               fontWeight: 300,
               lineHeight: 1.2,
               letterSpacing: '-0.03em',

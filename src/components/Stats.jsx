@@ -36,8 +36,8 @@ function Stats() {
       >
         <p style={{
           fontFamily: '"Space Grotesk", sans-serif',
-          fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-          fontWeight: 300,
+          fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+          fontWeight: 100,
           lineHeight: 1.4,
           margin: 0,
           color: '#fff',
@@ -57,15 +57,15 @@ function Stats() {
           paddingTop: '3rem'
         }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '3rem', lineHeight: 1, color: '#fff' }}>3+</span>
+            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '2.5rem', lineHeight: 1, color: '#fff' }}>3+</span>
             <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>Projects</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '3rem', lineHeight: 1, color: '#fff' }}>2+</span>
+            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '2.5rem', lineHeight: 1, color: '#fff' }}>1+</span>
             <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>Years Experience</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '3rem', lineHeight: 1, color: '#fff' }}>7.65</span>
+            <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '2.5rem', lineHeight: 1, color: '#fff' }}>7.48</span>
             <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>CGPA</span>
           </div>
         </div>

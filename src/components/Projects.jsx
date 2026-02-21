@@ -12,6 +12,7 @@ const projects = [
     year: "2025",
     description: "Streamlining request processing and tracking for improved operational efficiency across the entire manufacturing floor.",
     gradient: "linear-gradient(135deg, rgba(255,45,136,0.2) 0%, rgba(255,107,77,0.1) 100%)",
+    image: "/TestRequestSystem.png",
   },
   {
     title: "Collegia AI",
@@ -20,6 +21,7 @@ const projects = [
     year: "2024",
     description: "An AI-powered hub serving as a comprehensive data center for students. Delivering instant insights on faculty, subjects, and schedules.",
     gradient: "linear-gradient(135deg, rgba(138,86,255,0.2) 0%, rgba(78,168,222,0.1) 100%)",
+    image: "/Collegia.png"
   },
   {
     title: "Movie Analytics",
@@ -28,6 +30,7 @@ const projects = [
     year: "2024",
     description: "Deep data scraping from IMDb using BeautifulSoup and Selenium, transformed into highly interactive Power BI visualization dashboards.",
     gradient: "linear-gradient(135deg, rgba(255,183,77,0.2) 0%, rgba(255,45,136,0.1) 100%)",
+    image: "/MovieAnalytics.png"
   },
 ];
 
@@ -98,7 +101,9 @@ function Projects() {
                 gridColumn: index % 2 === 0 ? '1 / 8' : '6 / 13',
                 gridRow: '1',
                 aspectRatio: '16/10',
-                background: project.gradient,
+                background: project.image
+                  ? `linear-gradient(to top, #000 0%, transparent 100%), url(${project.image}) center/cover no-repeat`
+                  : project.gradient,
                 border: '1px solid rgba(255,255,255,0.05)',
                 borderRadius: 'var(--radius-lg)',
                 position: 'relative',
@@ -108,12 +113,14 @@ function Projects() {
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(0.98)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)',
-                zIndex: 1
-              }} />
+              {!project.image && (
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)',
+                  zIndex: 1
+                }} />
+              )}
             </div>
 
             {/* Project Info - takes up 5 columns, overlaps slightly */}

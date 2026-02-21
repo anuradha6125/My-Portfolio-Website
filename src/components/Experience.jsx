@@ -6,29 +6,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experienceData = [
     {
+        company: "RSK Business Solutions",
+        year: "Sep'2025 - Present",
+        position: "Dot Net Developer",
+        description: "Designed and developed scalable web applications using ASP.NET MVC / .NET Core, building secure RESTful APIs and implementing role-based authentication and authorization. Worked with SQL Server and Repository Pattern for efficient data management, performance optimization, and translating business requirements into clean, maintainable technical solutions.",
+    },
+    {
         company: "Roop Polymers",
-        year: "2025",
-        position: "Web Developer Intern",
+        year: "Feb'2025 - June'2025",
+        position: "Software Developer Intern",
         description: "Architected a web-based test request management system, streamlining processing and tracking to vastly improve operational efficiency.",
-    },
-    {
-        company: "Collegia AI",
-        year: "2024",
-        position: "Full Stack Developer",
-        description: "Built the core AI-powered hub for college students, bridging the gap between raw faculty data and instant academic accessibility.",
-    },
-    {
-        company: "Data Analytics",
-        year: "2024",
-        position: "Data Analyst",
-        description: "Engineered deep scraping pipelines for IMDb movie data, pushing raw information into interactive, high-fidelity Power BI dashboards.",
-    },
-    {
-        company: "Graphic Design",
-        year: "2023 - Present",
-        position: "Creative Designer",
-        description: "Crafted compelling visual identities using Photoshop and Figma across branding campaigns and high-end digital illustrations.",
-    },
+    }
 ];
 
 function Experience() {
@@ -59,7 +47,8 @@ function Experience() {
                 alignItems: 'baseline',
                 marginBottom: '6rem',
                 borderBottom: '1px solid rgba(255,255,255,0.1)',
-                paddingBottom: '2rem'
+                paddingBottom: '2rem',
+               
             }}>
                 <h2 style={{
                     fontFamily: '"Space Grotesk", sans-serif',
@@ -83,6 +72,7 @@ function Experience() {
                             gridTemplateColumns: '1fr 3fr',
                             gap: '2rem',
                             padding: '3rem 0',
+                            paddingLeft: '10px',
                             borderBottom: '1px solid rgba(255,255,255,0.05)',
                             position: 'relative',
                             transition: 'background 0.3s ease',

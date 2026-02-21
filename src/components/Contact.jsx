@@ -80,7 +80,7 @@ function Contact() {
         </p>
 
         <a
-          href="mailto:anuradha@example.com"
+          href="mailto:anuradha.2aug@gmail.com"
           className="btn btn-outline"
           style={{
             fontSize: '1rem',
@@ -100,7 +100,7 @@ function Contact() {
             e.target.style.color = '#fff';
           }}
         >
-          ANURADHA@EXAMPLE.COM
+          ANURADHA.2AUG@GMAIL.COM
         </a>
       </div>
     </section>

@@ -16,9 +16,7 @@ function App() {
     <>
       <Navbar />
       <main>
-        <section id="home">
-          <Hero />
-        </section>
+        <Hero />
         <RevealOnScroll>
           <Stats />
         </RevealOnScroll>

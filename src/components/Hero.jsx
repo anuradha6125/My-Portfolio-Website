@@ -26,22 +26,29 @@ function Hero() {
 
     if (overlayRef.current) {
       if (isHoveringRef.current) {
-        // Create a large radial "hole" in the overlay at cursor position
-        overlayRef.current.style.maskImage =
-          `radial-gradient(ellipse 320px 280px at ${x}% ${y}%, transparent 0%, transparent 45%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.85) 80%, black 100%)`;
-        overlayRef.current.style.webkitMaskImage =
-          `radial-gradient(ellipse 320px 280px at ${x}% ${y}%, transparent 0%, transparent 45%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.85) 80%, black 100%)`;
+        // Use viewport-relative sizes so the reveal scales with screen size
+        // and is large enough to fully work at edges/corners
+        const maskGradient =
+          `radial-gradient(ellipse 380px 310px at ${x}% ${y}%, transparent 0%, transparent 40%, rgba(0,0,0,0.35) 58%, rgba(0,0,0,0.8) 75%, black 100%)`;
+        overlayRef.current.style.maskImage = maskGradient;
+        overlayRef.current.style.webkitMaskImage = maskGradient;
       }
     }
 
-    // Push fog layers away from cursor
+    // Push fog layers away from cursor – scale displacement by distance from center
+    // so edges and corners get stronger push
     if (fog1Ref.current && fog2Ref.current && fog3Ref.current) {
-      const dx = (x - 50) * 0.6;
-      const dy = (y - 50) * 0.6;
+      const dx = x - 50; // -50 to +50
+      const dy = y - 50;
+      const dist = Math.sqrt(dx * dx + dy * dy); // 0 at center, ~70 at corners
+      const edgeBoost = 1 + dist * 0.02; // ramps up near edges
+
       if (isHoveringRef.current) {
-        fog1Ref.current.style.transform = `translate(${dx * 1.2}px, ${dy * 1.4}px) scale(1.1)`;
-        fog2Ref.current.style.transform = `translate(${-dx * 0.8}px, ${dy * 1.1}px) scale(1.15)`;
-        fog3Ref.current.style.transform = `translate(${dx * 0.5}px, ${-dy * 0.9}px) scale(1.08)`;
+        const pushX = dx * 0.8 * edgeBoost;
+        const pushY = dy * 0.8 * edgeBoost;
+        fog1Ref.current.style.transform = `translate(${pushX * 1.3}px, ${pushY * 1.5}px) scale(${1.1 + dist * 0.003})`;
+        fog2Ref.current.style.transform = `translate(${-pushX * 1.0}px, ${pushY * 1.2}px) scale(${1.15 + dist * 0.002})`;
+        fog3Ref.current.style.transform = `translate(${pushX * 0.7}px, ${-pushY * 1.0}px) scale(${1.08 + dist * 0.003})`;
       }
     }
 
@@ -126,9 +133,14 @@ function Hero() {
   }, [updateReveal]);
 
   // --- Shared fog layer base styles ---
+  // Negative inset so fog extends beyond the container and doesn't leave
+  // gaps at edges when pushed by cursor displacement
   const fogBase = {
     position: 'absolute',
-    inset: 0,
+    top: '-60px',
+    left: '-60px',
+    right: '-60px',
+    bottom: '-60px',
     zIndex: 4,
     pointerEvents: 'none',
     transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease',
@@ -253,6 +265,7 @@ function Hero() {
       {/* Bottom info bar — absolute, NOT sticky */}
       <div
         ref={bottomRef}
+        className="hero-bottom-bar"
         style={{
           position: 'absolute',
           bottom: '8vh',
@@ -274,7 +287,7 @@ function Hero() {
           fontWeight: 300,
           textShadow: '0 2px 10px rgba(0,0,0,0.5)'
         }}>
-          For 2+ years, I've been helping brands and creatives build standout websites. By combining thoughtful design with powerful code, I make the web more beautiful.
+          Hi, I'm Anuradha, a Software Developer who loves transforming complex problems into simple, elegant solutions.
         </p>
 
         <a

@@ -43,7 +43,7 @@ function FAQ() {
   return (
     <section id="faq" className="section-container" ref={containerRef} style={{ paddingTop: '5vh' }}>
 
-      <div style={{
+      <div className="section-header" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'baseline',
@@ -60,10 +60,10 @@ function FAQ() {
         }}>
           Common <span style={{ color: 'rgba(255,255,255,0.4)', fontStyle: 'italic' }}>Questions</span>
         </h2>
-        <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>06</span>
+        <span className="section-number" style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>06</span>
       </div>
 
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div className="faq-list" style={{ maxWidth: '800px', margin: '0 auto' }}>
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           return (

@@ -150,6 +150,7 @@ function Hero() {
   return (
     <section
       id="home"
+      className="hero-section"
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
@@ -245,8 +246,8 @@ function Hero() {
       />
 
       {/* Layer 5: Text content — ALWAYS at full opacity */}
-      <div style={{ position: 'relative', zIndex: 10, marginTop: '10vh' }}>
-        <h1 style={{
+      <div className="hero-text-wrapper" style={{ position: 'relative', zIndex: 10, marginTop: '10vh' }}>
+        <h1 className="hero-title" style={{
           fontFamily: '"Space Grotesk", sans-serif',
           fontSize: 'clamp(60px, 12vw, 180px)',
           fontWeight: 300,

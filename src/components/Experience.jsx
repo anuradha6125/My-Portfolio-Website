@@ -40,15 +40,15 @@ function Experience() {
     }, []);
 
     return (
-        <section id="experience" className="section-container" ref={containerRef} style={{ paddingTop: '15vh' }}>
-            <div style={{
+        <section id="experience" className="section-container" ref={containerRef} style={{ paddingTop: 'clamp(6vh, 10vh, 15vh)' }}>
+            <div className="section-header" style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'baseline',
                 marginBottom: '6rem',
                 borderBottom: '1px solid rgba(255,255,255,0.1)',
                 paddingBottom: '2rem',
-               
+
             }}>
                 <h2 style={{
                     fontFamily: '"Space Grotesk", sans-serif',
@@ -59,7 +59,7 @@ function Experience() {
                 }}>
                     Work <span style={{ color: 'rgba(255,255,255,0.4)', fontStyle: 'italic' }}>Experience</span>
                 </h2>
-                <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>04</span>
+                <span className="section-number" style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>04</span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -67,6 +67,7 @@ function Experience() {
                     <div
                         key={index}
                         ref={el => itemRefs.current[index] = el}
+                        className="experience-item"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: '1fr 3fr',

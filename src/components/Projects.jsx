@@ -61,7 +61,7 @@ function Projects() {
   return (
     <section id="portfolio" className="section-container" ref={containerRef} style={{ paddingTop: '5vh' }}>
 
-      <div style={{
+      <div className="section-header" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'baseline',
@@ -78,14 +78,15 @@ function Projects() {
         }}>
           Selected <span style={{ color: 'rgba(255,255,255,0.4)', fontStyle: 'italic' }}>Works</span>
         </h2>
-        <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>03</span>
+        <span className="section-number" style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>03</span>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
+      <div className="projects-list" style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
         {projects.map((project, index) => (
           <article
             key={project.title}
             ref={el => projectRefs.current[index] = el}
+            className="project-card"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(12, 1fr)',
@@ -124,7 +125,7 @@ function Projects() {
             </div>
 
             {/* Project Info - takes up 5 columns, overlaps slightly */}
-            <div className="glass-panel" style={{
+            <div className="glass-panel project-info project-info-panel" style={{
               gridColumn: index % 2 === 0 ? '7 / 13' : '1 / 7',
               gridRow: '1',
               zIndex: 2,
@@ -181,7 +182,7 @@ function Projects() {
                 {project.description}
               </p>
 
-              <a href="#" className="btn btn-outline" style={{
+              {/* <a href="#" className="btn btn-outline" style={{
                 fontSize: '0.85rem',
                 border: 'none',
                 borderBottom: '1px solid rgba(255,255,255,0.3)',
@@ -192,7 +193,7 @@ function Projects() {
                 gap: '8px'
               }}>
                 VIEW CASE STUDY →
-              </a>
+              </a> */}
             </div>
           </article>
         ))}

@@ -50,7 +50,7 @@ function Services() {
   return (
     <section id="services" className="section-container" ref={containerRef}>
 
-      <div style={{
+      <div className="section-header" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'baseline',
@@ -67,14 +67,14 @@ function Services() {
         }}>
           Core <span style={{ color: 'rgba(255,255,255,0.4)', fontStyle: 'italic' }}>Expertise</span>
         </h2>
-        <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>05</span>
+        <span className="section-number" style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '1.2rem', color: 'rgba(255,255,255,0.5)' }}>05</span>
       </div>
 
       <div style={{
         display: 'flex',
         justifyContent: 'center'
       }}>
-        <div style={{
+        <div className="skills-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '4rem 3rem',

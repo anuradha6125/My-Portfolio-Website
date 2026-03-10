@@ -24,7 +24,7 @@ function Stats() {
     <section id="stats" className="section-container" style={{ paddingTop: '5vh' }}>
       <div
         ref={containerRef}
-        className="glass-panel"
+        className="glass-panel stats-panel"
         style={{
           padding: '4rem',
           display: 'flex',
@@ -34,7 +34,7 @@ function Stats() {
           overflow: 'hidden'
         }}
       >
-        <p style={{
+        <p className="stats-description" style={{
           fontFamily: '"Space Grotesk", sans-serif',
           fontSize: 'clamp(1rem, 2vw, 1.5rem)',
           fontWeight: 100,
@@ -44,12 +44,12 @@ function Stats() {
           maxWidth: '1000px',
           letterSpacing: '-0.02em'
         }}>
-          I'm a Software Developer and beginner Machine Learning enthusiast.
-          Currently working at <span style={{ color: 'rgba(255,255,255,0.6)', fontStyle: 'italic' }}>RSK Business Solution</span> as a Dot Net Developer
-          and pursuing a B.Tech in CS. I bring a passion for creating innovative solutions and turning data into actionable insights.
+          Curiosity is what drives me as a developer. I’m always exploring, learning, and building with one project at a time. Currently working at <span style={{ color: 'rgba(255,255,255,0.6)', fontStyle: 'italic' }}>RSK Business Solution</span> as a Dot Net Developer.
+          <br />
+          Along the way, I’ve developed a growing interest in Machine Learning, where I’m learning how data and algorithms can create smarter systems.
         </p>
 
-        <div style={{
+        <div className="stats-numbers" style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '4rem',

@@ -38,9 +38,9 @@ function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" className="section-container" ref={containerRef} style={{ paddingTop: '15vh', paddingBottom: '15vh' }}>
+    <section id="testimonials" className="section-container" ref={containerRef} style={{ paddingTop: 'clamp(6vh, 10vh, 15vh)', paddingBottom: 'clamp(6vh, 10vh, 15vh)' }}>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10rem', alignItems: 'center', textAlign: 'center' }}>
+      <div className="testimonials-list" style={{ display: 'flex', flexDirection: 'column', gap: '10rem', alignItems: 'center', textAlign: 'center' }}>
         {testimonials.map((t, index) => (
           <div key={index} ref={el => textRefs.current[index] = el} style={{ maxWidth: '900px' }}>
             <p style={{
@@ -53,7 +53,7 @@ function Testimonials() {
               margin: '0 0 3rem 0',
               position: 'relative'
             }}>
-              <span style={{
+              <span className="testimonial-quote-mark" style={{
                 position: 'absolute',
                 top: '-2rem',
                 left: '-4rem',

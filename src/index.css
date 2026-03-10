@@ -171,3 +171,305 @@ main {
   margin-bottom: 1rem;
   display: block;
 }
+
+/* ==============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================== */
+
+/* --- Tablets & Small Laptops (≤1024px) --- */
+@media (max-width: 1024px) {
+  .section-container {
+    padding: 10vh 5vw;
+  }
+
+  .glass-panel {
+    padding: 2rem !important;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 0 4vw !important;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 10vw, 140px) !important;
+  }
+
+  .hero-bottom-bar {
+    bottom: 6vh !important;
+    left: 4vw !important;
+    right: 4vw !important;
+  }
+
+  /* Projects: stack image + info vertically */
+  .project-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card .project-image-wrapper {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+
+  .project-card .project-info {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    margin-top: 0 !important;
+  }
+
+  .projects-list {
+    gap: 4rem !important;
+  }
+
+  /* Experience: stack columns */
+  .experience-item {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Skills: reduce min column */
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 3rem 2rem !important;
+  }
+
+  /* Footer: stack layout */
+  .footer-top {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .footer-links {
+    gap: 2rem !important;
+  }
+
+  /* Testimonials */
+  .testimonials-list {
+    gap: 6rem !important;
+  }
+}
+
+/* --- Mobile (≤768px) --- */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 8vh 5vw;
+  }
+
+  /* Section headers: stack title & number */
+  .section-header {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .section-header .section-number {
+    align-self: flex-start;
+  }
+
+  .glass-panel {
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 0 5vw !important;
+    cursor: auto !important;
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 13vw, 100px) !important;
+  }
+
+  .hero-text-wrapper {
+    margin-top: 5vh !important;
+  }
+
+  .hero-bottom-bar {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-items: flex-start !important;
+    bottom: 4vh !important;
+    left: 5vw !important;
+    right: 5vw !important;
+  }
+
+  .hero-bottom-bar p {
+    font-size: 0.9rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Stats */
+  .stats-panel {
+    padding: 2.5rem 2rem !important;
+    gap: 2.5rem !important;
+  }
+
+  .stats-description {
+    font-size: clamp(0.9rem, 1.8vw, 1.3rem) !important;
+  }
+
+  .stats-numbers {
+    gap: 2rem !important;
+    padding-top: 2rem !important;
+  }
+
+  /* Projects */
+  .projects-list {
+    gap: 3rem !important;
+  }
+
+  .project-info-panel {
+    padding: 2rem !important;
+  }
+
+  /* Experience */
+  .experience-item {
+    padding: 2rem 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Testimonials: reduce gap & adjust quote mark */
+  .testimonials-list {
+    gap: 4rem !important;
+  }
+
+  .testimonial-quote-mark {
+    left: -0.5rem !important;
+    top: -1.5rem !important;
+    font-size: 5rem !important;
+  }
+
+  /* Contact */
+  .contact-section {
+    padding: 8vh 5vw 4vh 5vw !important;
+    margin-top: 5vh !important;
+  }
+
+  .contact-cta {
+    font-size: 0.75rem !important;
+    padding: 1.2rem 2rem !important;
+    word-break: break-all;
+  }
+
+  /* FAQ */
+  .faq-list {
+    max-width: 100% !important;
+  }
+
+  /* Navbar */
+  .nav-header {
+    padding: 0.8rem 1.2rem !important;
+  }
+
+  .nav-resume-btn {
+    display: none !important;
+  }
+
+  /* Footer */
+  .footer-wrap {
+    padding: 3rem 1.5rem 2rem 1.5rem !important;
+    margin: 0 3vw 3vw 3vw !important;
+  }
+
+  .footer-links {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center;
+  }
+}
+
+/* --- Small phones (≤480px) --- */
+@media (max-width: 480px) {
+  .section-container {
+    padding: 6vh 4vw;
+  }
+
+  .glass-panel {
+    padding: 1.5rem !important;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 0 4vw !important;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 12vw, 72px) !important;
+  }
+
+  .hero-bottom-bar {
+    bottom: 3vh !important;
+    left: 4vw !important;
+    right: 4vw !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-bottom-bar p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Stats */
+  .stats-panel {
+    padding: 1.5rem !important;
+    gap: 2rem !important;
+  }
+
+  .stats-numbers {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .stats-numbers>div>span:first-child {
+    font-size: 2rem !important;
+  }
+
+  /* Projects */
+  .projects-list {
+    gap: 2.5rem !important;
+  }
+
+  .project-info-panel {
+    padding: 1.5rem !important;
+  }
+
+  /* Contact */
+  .contact-section {
+    padding: 6vh 4vw 3vh 4vw !important;
+    min-height: 50vh !important;
+  }
+
+  .contact-cta {
+    font-size: 0.65rem !important;
+    padding: 1rem 1.5rem !important;
+  }
+
+  /* Testimonials */
+  .testimonials-list {
+    gap: 3rem !important;
+  }
+
+  .testimonial-quote-mark {
+    display: none !important;
+  }
+
+  /* Footer */
+  .footer-wrap {
+    padding: 2rem 1rem 1.5rem 1rem !important;
+    margin: 0 2vw 2vw 2vw !important;
+  }
+
+  /* Navbar */
+  .nav-header {
+    padding: 0.6rem 1rem !important;
+  }
+}

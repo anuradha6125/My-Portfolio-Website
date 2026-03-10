@@ -24,6 +24,7 @@ function Contact() {
   return (
     <section
       id="contact"
+      className="contact-section"
       ref={containerRef}
       style={{
         position: 'relative',
@@ -81,7 +82,7 @@ function Contact() {
 
         <a
           href="mailto:anuradha.2aug@gmail.com"
-          className="btn btn-outline"
+          className="btn btn-outline contact-cta"
           style={{
             fontSize: '1rem',
             padding: '1.5rem 4rem',
